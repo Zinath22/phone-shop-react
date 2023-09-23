@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/mainLayout";
 import Home from "../Pages/Home/Home";
+import Favorites from "../Pages/Favorites/Favorites";
+import Login from "../Pages/Login/Login";
 
 
 const myCreateRouter = createBrowserRouter( [
@@ -10,7 +12,16 @@ const myCreateRouter = createBrowserRouter( [
    children: [
     {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('/phones.json')
+    },
+    {
+        path: "/favorites",
+        element: <Favorites></Favorites>
+    },
+    {
+        path: "/login",
+        element: <Login></Login>
     }
    ]
     }
